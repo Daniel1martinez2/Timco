@@ -1,0 +1,1 @@
+export type NeighborType = {name: string, value: number}; 

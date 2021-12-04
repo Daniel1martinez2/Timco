@@ -1,13 +1,13 @@
-import React, {useState} from 'react'; 
 import { TextField } from '@material-ui/core';
 
 interface InputProps {
   type: 'text' | 'number'; 
   getValue: (value: string) => void; 
-  value: string
+  value: string;
+  title: string; 
 }
 
-const Input: React.FC<InputProps> = ({type, getValue, value}) => {
+const Input: React.FC<InputProps> = ({type, getValue, value, title}) => {
   
   const inputHandler: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> = (e) => {
     if(type !== 'number') {
@@ -17,14 +17,16 @@ const Input: React.FC<InputProps> = ({type, getValue, value}) => {
     if(/^\d+$/.test(e.target.value) || e.target.value === '') {
       getValue(e.target.value);
     }; 
-  }
+  } 
   return (
     <TextField 
+      fullWidth
       id="outlined-basic" 
-      label="Outlined" 
+      label={title} 
       variant="outlined" 
       value={value}
       onChange={inputHandler}
+      size="small"
     />
   )
 }

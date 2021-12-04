@@ -1,0 +1,1 @@
+export type SliderType = {id: string, value: number | number[], title: string}[]; 
