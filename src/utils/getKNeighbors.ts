@@ -10,5 +10,4 @@ export const getKNeighbors = (parsedData:any, person: any, nameHeader:string[], 
     testArray.push({tie, name});
   })
   return testArray.sort((a,b) => b.tie-a.tie).splice(0,entries)
-  
 }

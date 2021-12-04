@@ -1,1 +1,1 @@
-export type NeighborType = {name: string, value: number}; 
+export type NeighborType = {name: string, tie: number}; 

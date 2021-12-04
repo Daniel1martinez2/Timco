@@ -12,7 +12,7 @@ const NeighborItem: React.FC<NeighborItemProps> = ({name, value}) => {
 
   return (
     <ListItem
-      secondaryAction={<h2>{value}%</h2>}
+      secondaryAction={<h2>{value.toFixed(1)}%</h2>}
       divider
     >
       <ListItemAvatar>
