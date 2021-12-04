@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { csvParser } from '../../utils/csvParser'; 
 import { fetchCSV } from '../../utils/fetchCSV'; 
-import { SliderType } from '../../types/SliderType';
-import { NeighborType } from '../../types/NeighborType';
-
-import NeighborList from '../NeighborList/NeighborList';
-import SliderList from '../SliderList/SliderList'; 
-import Input from '../Input/Input'; 
 import classes from './App.module.css';
+import Core from '../MainTim/Sprint';
+import { SliderType } from '../../types/SliderType';
+import SliderList from '../SliderList/SliderList';
+import { fromDataToSlider } from '../../utils/fromDataToSlider';
 //@ts-ignore
-import DATA from '../../db/data.csv'; 
+import DATA from '../../db/data.csv';
 
 const DUMMY_SLIDER: SliderType = [
   {id: 's1', value: 100, title: 'Habilidad 1'},
@@ -19,44 +17,22 @@ const DUMMY_SLIDER: SliderType = [
   {id: 's5', value: 100, title: 'Habilidad 5'},
 ]
 
-const DUMMY_NEIGHBORS: NeighborType[] = [
-  {
-    name: 'Daniel', 
-    value: 80
-  },
-  {
-    name: 'Sofia', 
-    value: 20
-  },
-  {
-    name: 'Zac', 
-    value: 40
-  },
-]
 
 function App() {
-  const [inputValue, setInputValue] = useState(''); 
-  const [sliders, setSlider] = useState(DUMMY_SLIDER);
-  
-  // useEffect(() => {
-  //   fetchCSV(DATA)
-  //   .then( value => csvParser(value))
-  //   .then(convertedData => console.log(convertedData));
-  // }, []); 
+  const [dataBase, setDataBase] = useState<any>(null); 
 
-  const getValueSlider = (value: SliderType) => setSlider(value);
-  const getValue = (value: string) => setInputValue(value); 
+  useEffect(() => {
+    fetchCSV(DATA)
+    .then( value => csvParser(value))
+    .then(convertedData => {
+      setDataBase(convertedData);
+      console.log(convertedData);
+    });
+  }, []);
 
   return (
     <div className={classes['app']}>
-      <Input 
-        type="text" 
-        getValue={getValue} 
-        value={inputValue}
-        title="Número de personas"
-      />
-      <SliderList sliders={sliders} getValue={getValueSlider} />
-      <NeighborList NeighborArray={DUMMY_NEIGHBORS}/>
+      {dataBase && <Core headers={dataBase.headers} data={dataBase.parsedData}/>}
     </div>
   );
 }
