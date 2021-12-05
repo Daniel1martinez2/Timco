@@ -20,6 +20,7 @@ const Input: React.FC<InputProps> = ({type, getValue, value, title}) => {
   } 
   return (
     <TextField 
+      color="secondary"
       fullWidth
       id="outlined-basic" 
       label={title} 

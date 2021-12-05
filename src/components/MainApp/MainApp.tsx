@@ -6,8 +6,9 @@ import {fromDataToSlider} from '../../utils/fromDataToSlider';
 import NeighborList from '../NeighborList/NeighborList';
 import SliderList from '../SliderList/SliderList'; 
 import Input from '../Input/Input'; 
+import logo from '../../lib/svg/logo.svg'
 
-import { Button } from '@mui/material';
+import { Button } from  '@material-ui/core';
 
 import { createPersonFromSliders } from '../../utils/createPersonFromSliders'; 
 import { getKNeighbors } from '../../utils/getKNeighbors'; 
@@ -35,6 +36,7 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
 
   return (
     <Fragment>
+      {/* <img src={logo} alt="logo"/> */}
       <Input 
         type="text" 
         getValue={getValue} 
@@ -43,8 +45,9 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
       />
       <SliderList sliders={sliders} getValue={getValueSlider} />
       <Button 
-        variant="outlined" 
-        color="primary"
+        variant="contained"
+        color="secondary"
+        type="button"
         onClick={submitHandler}
       >
         Continuar

@@ -3,8 +3,20 @@ import { csvParser } from '../../utils/csvParser';
 import { fetchCSV } from '../../utils/fetchCSV'; 
 import classes from './App.module.css';
 import MainApp from '../MainApp/MainApp';
+import { ThemeProvider, createTheme} from '@material-ui/core';
+import { teal, deepPurple } from '@mui/material/colors';
 //@ts-ignore
 import DATA from '../../db/data.csv';
+
+const customTheme = createTheme({
+  palette:{
+    primary: {
+      main: teal[500]
+    }, 
+    secondary: deepPurple,
+
+  }
+})
 
 function App() {
   const [dataBase, setDataBase] = useState<any>(null); 
@@ -18,9 +30,11 @@ function App() {
   }, []);
 
   return (
-    <div className={classes['app']}>
-      {dataBase && <MainApp headers={dataBase.headers} data={dataBase.parsedData}/>}
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <div className={classes['app']}>
+        {dataBase && <MainApp headers={dataBase.headers} data={dataBase.parsedData}/>}
+      </div>
+    </ThemeProvider>
   );
 }
 
