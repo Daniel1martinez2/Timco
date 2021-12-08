@@ -15,6 +15,7 @@ import { getKNeighbors } from '../../utils/getKNeighbors';
 import {getSystemAggregationTVector} from '../../utils/getSystemAggregationTVector';
 import { getTemporalVector } from '../../utils/getTemporalVector';
 import { getTransformedData } from '../../utils/getTransformedData';
+import {marketing, design, mix} from '../../utils/profilesDefault'; 
 
 interface MainAppProps {
   data: any
@@ -62,6 +63,19 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
     }
   }
 
+  const profileHandler = (profile: 'marketing' | 'design' | 'mix') => {
+    let profileArray:number[] = []; 
+    switch(profile){
+      case 'marketing': profileArray = marketing
+      break;
+      case 'design': profileArray = design
+      break;
+      case 'mix': profileArray = mix
+      break;
+    }
+    setSlider(prev => prev.map((slider, index) => ({...slider, value: profileArray[index]*10})))
+  }
+
   return (
     <Fragment>
       {/* <img src={logo} alt="logo"/> */}
@@ -71,6 +85,30 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
         value={inputValue}
         title="Número de personas"
       />
+      <Button 
+        variant="outlined"
+        type="button"
+        color="primary"
+        onClick={() => profileHandler('marketing')}
+      >
+        Marketing
+      </Button>
+      <Button 
+        variant="outlined"
+        type="button"
+        color="primary"
+        onClick={() => profileHandler('design')}
+      >
+        Design
+      </Button>
+      <Button 
+        variant="outlined"
+        type="button"
+        color="primary"
+        onClick={() => profileHandler('mix')}
+      >
+        Mix
+      </Button>
       <SliderList sliders={sliders} getValue={getValueSlider} />
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Aggregation model</InputLabel>

@@ -7,7 +7,7 @@ import { ThemeProvider, createTheme} from '@material-ui/core';
 import { teal, deepPurple } from '@mui/material/colors';
 //@ts-ignore
 // import DATA from '../../db/data.csv';
-import DATA from '../../db/evaluacion_hanilidades.csv';
+import DATA from '../../db/habilidades.csv';
 
 const customTheme = createTheme({
   palette:{
