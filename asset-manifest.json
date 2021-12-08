@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Timco/static/css/main.470bd46c.chunk.css",
+    "main.js": "/Timco/static/js/main.3e90d498.chunk.js",
+    "main.js.map": "/Timco/static/js/main.3e90d498.chunk.js.map",
+    "runtime-main.js": "/Timco/static/js/runtime-main.030d7401.js",
+    "runtime-main.js.map": "/Timco/static/js/runtime-main.030d7401.js.map",
+    "static/js/2.744899ac.chunk.js": "/Timco/static/js/2.744899ac.chunk.js",
+    "static/js/2.744899ac.chunk.js.map": "/Timco/static/js/2.744899ac.chunk.js.map",
+    "index.html": "/Timco/index.html",
+    "static/css/main.470bd46c.chunk.css.map": "/Timco/static/css/main.470bd46c.chunk.css.map",
+    "static/js/2.744899ac.chunk.js.LICENSE.txt": "/Timco/static/js/2.744899ac.chunk.js.LICENSE.txt",
+    "static/media/evaluacion_hanilidades.de2a9065.csv": "/Timco/static/media/evaluacion_hanilidades.de2a9065.csv"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.030d7401.js",
+    "static/js/2.744899ac.chunk.js",
+    "static/css/main.470bd46c.chunk.css",
+    "static/js/main.3e90d498.chunk.js"
+  ]
+}
