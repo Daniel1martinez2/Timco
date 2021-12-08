@@ -6,14 +6,20 @@ import MainApp from '../MainApp/MainApp';
 import { ThemeProvider, createTheme} from '@material-ui/core';
 import { teal, deepPurple } from '@mui/material/colors';
 //@ts-ignore
-import DATA from '../../db/data.csv';
+// import DATA from '../../db/data.csv';
+import DATA from '../../db/evaluacion_hanilidades.csv';
 
 const customTheme = createTheme({
   palette:{
     primary: {
       main: teal[500]
     }, 
-    secondary: deepPurple,
+    secondary: {
+      main: '#122930'
+    },
+    error: {
+      main: deepPurple[50]
+    }
 
   }
 })
@@ -28,6 +34,7 @@ function App() {
       setDataBase(convertedData);
     });
   }, []);
+
 
   return (
     <ThemeProvider theme={customTheme}>
