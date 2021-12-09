@@ -17,6 +17,7 @@ export const getSystemAggregationTVector = (system:string, tVector:any, neighbor
         }
         return newVector
     case 'Media satisfaction':
+      console.log(neighborsVector, 'LOL');
       const standardVector = getStandardDeviationFromNeighbor(neighborsVector, nameHeader); 
       // console.table(standardVector);
       for(const key in standardVector){

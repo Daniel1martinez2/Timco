@@ -17,22 +17,30 @@ import { getTemporalVector } from '../../utils/getTemporalVector';
 import { getTransformedData } from '../../utils/getTransformedData';
 import {marketing, design, mix} from '../../utils/profilesDefault'; 
 
+const getCompleteDataOfNeighborList = (data:any, currentNeighbors:NeighborType[], header:string) => {
+  const neighborsListNames = currentNeighbors.map(n => n.name); 
+  return data.filter((d:any) => neighborsListNames.includes(d[header]))
+}
+
 interface MainAppProps {
   data: any
   headers: string[]
 };
+
 type SelectHandlerType = ((event: React.ChangeEvent<{name?: string | undefined;value: unknown;}>, child: React.ReactNode) => void);
 
 const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
+  
   const [aggregation, setAggregation] = useState<string>('');
   const [inputValue, setInputValue] = useState('');
+  const [neighborListCompleteData, setNeighborListCompleteData] = useState([]);
   const [sliders, setSlider] = useState<SliderType>(fromDataToSlider(headers, headers[0]));
   const [neighbors, setNeighbors] = useState<NeighborType[]>();
 
   const getValueSlider = (value: SliderType) => setSlider(value);
   const getValue = (value: string) => setInputValue(value);
   
-
+ 
 
   const submitHandler = () => {
     if(!inputValue) return; 
@@ -55,6 +63,12 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
     const neighborsFinal = getKNeighbors(data, aggregationPerson, [headers[0]], parseInt(inputValue));
     setNeighbors(neighborsFinal);
 
+    // console.log(neighborsFinal);
+
+    // const neighborsListNames = neighborsFinal.map(n => n.name); 
+    
+    // console.log(data.filter((d:any) => neighborsListNames.includes(d[headers[0]])));
+    setNeighborListCompleteData(getCompleteDataOfNeighborList(data,neighborsFinal, headers[0]))
   }
 
   const selectHandler:SelectHandlerType = (event) => {
@@ -78,6 +92,7 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
 
   return (
     <Fragment>
+      
       {/* <img src={logo} alt="logo"/> */}
       <Input 
         type="number" 
@@ -133,7 +148,7 @@ const MainApp: React.FC<MainAppProps> = ({data, headers}) => {
       >
         Continuar
       </Button>
-      {neighbors && <NeighborList NeighborArray={neighbors}/>}
+      {neighbors && <NeighborList header={headers[0]} data={neighborListCompleteData} NeighborArray={neighbors}/>}
     </Fragment>
   )
 }

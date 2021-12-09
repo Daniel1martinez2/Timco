@@ -1,0 +1,32 @@
+.container{
+  color: #122930; 
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 1024px;
+  background-color: #FDFBF9; 
+  padding:2em;
+  border-radius: 8px;  
+  gap: 1em; 
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  -webkit-box-shadow:rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+  -moz-box-shadow:rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+  overflow: auto;
+  animation: pulse 1s ;
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%)
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.container h1{
+  text-align:center;
+}

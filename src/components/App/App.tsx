@@ -9,6 +9,7 @@ import { teal, deepPurple } from '@mui/material/colors';
 // import DATA from '../../db/data.csv';
 import DATA from '../../db/habilidades.csv';
 
+
 const customTheme = createTheme({
   palette:{
     primary: {
@@ -24,9 +25,12 @@ const customTheme = createTheme({
   }
 })
 
-function App() {
-  const [dataBase, setDataBase] = useState<any>(null); 
 
+
+function App() {
+  
+  const [dataBase, setDataBase] = useState<any>(null); 
+  
   useEffect(() => {
     fetchCSV(DATA)
     .then( value => csvParser(value))
@@ -38,6 +42,10 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
+
+      
+      
+
       <div className={classes['app']}>
         {dataBase && <MainApp headers={dataBase.headers} data={dataBase.parsedData}/>}
       </div>

@@ -10,7 +10,7 @@ export const getStandardDeviationFromNeighbor = (currentData: any, nameHeader: s
       if(!acc[key]){
         acc[key] = []
       }
-      acc[key].push(val[key])
+      acc[key].push(parseInt(val[key]))
     }
     return acc
   }, {}); 
