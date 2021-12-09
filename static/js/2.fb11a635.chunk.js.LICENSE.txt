@@ -4,6 +4,13 @@ object-assign
 @license MIT
 */
 
+/*!
+ * Chart.js v3.6.2
+ * https://www.chartjs.org
+ * (c) 2021 Chart.js Contributors
+ * Released under the MIT License
+ */
+
 /**
  * @license Complex.js v2.0.15 12/05/2020
  *
