@@ -13,9 +13,14 @@
   -moz-box-shadow:rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
   overflow: auto;
   animation: pulse 1s ;
+  /* max-height: 600px; */
 }
 
-
+.image{
+  border-radius: 100px;
+  width: 100px;
+  align-self: center;
+}
 @keyframes pulse {
   0% {
     opacity: 0;

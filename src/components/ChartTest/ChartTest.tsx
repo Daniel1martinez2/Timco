@@ -15,8 +15,8 @@ const ChartTest = ({labels, data}: {labels: string[], data: number[]}) => {
               borderWidth: 1
           }]
         }}
-        height={400}
-        width={600}
+        height={250}
+        // width={600}
         options={{
           indexAxis: 'y',
           responsive: true,

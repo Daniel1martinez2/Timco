@@ -42,10 +42,6 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
-
-      
-      
-
       <div className={classes['app']}>
         {dataBase && <MainApp headers={dataBase.headers} data={dataBase.parsedData}/>}
       </div>

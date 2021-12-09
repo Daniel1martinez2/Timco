@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'; 
+import React, {Fragment, useState, useEffect} from 'react'; 
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -7,6 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { styled } from '@mui/system';
 import ModalScreen from '../ModalScreen/ModalScreen';
 import ModalNeighbor from '../ModalNeighbor/ModalNeighbor';
+import defaultUserImg from '../../lib/img/user.png'; 
 
 interface NeighborItemProps {
   name: string;
@@ -23,25 +24,40 @@ const ListItemContainer = styled(ListItem)({
 
 const NeighborItem: React.FC<NeighborItemProps> = ({name, value, data}) => {
   const [showModal, setShowModal] = useState(false); 
+  const [image, setImage] = useState(null);
+  const [phone, setPhone] = useState<number | null>(null);
+  useEffect(() => {
+    fetch('https://randomuser.me/api/')
+    .then(raw => raw.json())
+    .then(data => {
+      console.log(data.results[0]);
+      setImage(data.results[0].picture.large);
+      setPhone(data.results[0].phone); 
+    })
+  }, [])
+  
   return (
     <Fragment>
       {showModal && <ModalScreen setShowModal={setShowModal}>
-        <ModalNeighbor data={data} name={name}/>
+        <ModalNeighbor 
+          image={image || defaultUserImg} 
+          data={data} 
+          name={name}
+        />
       </ModalScreen>}
       
       <ListItemContainer
         secondaryAction={<h3>{value.toFixed(1)}%</h3>}
         // divider
-        disablePadding
       >
         <ListItemButton onClick={() => setShowModal(true)}>
           <ListItemAvatar>
             <Avatar
               alt={`Avatar n°`}
-              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dmrkNiYJX4oH586rKzZebgHaHa%26pid%3DApi&f=1"
+              src={image || ''}
             />
           </ListItemAvatar>
-          <ListItemText primary={<h2>{name}</h2>} secondary={<span>Number: 23132423</span>} />
+          <ListItemText primary={<h2>{name}</h2>} secondary={<span>Número: {phone || '3734765'}</span>} />
         </ListItemButton>
       </ListItemContainer>
     </Fragment>
@@ -49,24 +65,3 @@ const NeighborItem: React.FC<NeighborItemProps> = ({name, value, data}) => {
 }
 
 export default NeighborItem; 
-
-/**
- * 
- * <ListItem
-    key={value}
-    secondaryAction={
-      <h1>s</h1>
-    }
-    disablePadding
-  >
-    <ListItemButton>
-      <ListItemAvatar>
-        <Avatar
-          alt={`Avatar n°${value + 1}`}
-          src={`/static/images/avatar/${value + 1}.jpg`}
-        />
-      </ListItemAvatar>
-      <ListItemText id={'s'} primary={`Line item ${value + 1}`} />
-    </ListItemButton>
-  </ListItem>
- */

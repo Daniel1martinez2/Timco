@@ -5,6 +5,7 @@ import classes from './ModalNeighbor.module.css';
 interface ModalNeighborProps {
   name: string;
   data: any;
+  image: string;
 }
 
   const getTd = (e:any) => {
@@ -17,7 +18,7 @@ interface ModalNeighborProps {
 
 
   
-const ModalNeighbor: React.FC<ModalNeighborProps> = ({name, data}) => {
+const ModalNeighbor: React.FC<ModalNeighborProps> = ({name, data, image}) => {
   
 
   const keys = Object.keys(data).slice(1);
@@ -25,6 +26,7 @@ const ModalNeighbor: React.FC<ModalNeighborProps> = ({name, data}) => {
 
   return (
     <div className={classes.container}>
+      <img className={classes.image} src={image} alt="" />
       <h1>{name}</h1>
       {/* {keys.map( (key, index) => (
         <li key={index} style={{display: 'flex', alignItems: 'center', gap: '1em'}}>
