@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/Timco/static/css/main.33071467.chunk.css",
-    "main.js": "/Timco/static/js/main.313711c9.chunk.js",
-    "main.js.map": "/Timco/static/js/main.313711c9.chunk.js.map",
+    "main.css": "/Timco/static/css/main.df46e50c.chunk.css",
+    "main.js": "/Timco/static/js/main.ba05a4de.chunk.js",
+    "main.js.map": "/Timco/static/js/main.ba05a4de.chunk.js.map",
     "runtime-main.js": "/Timco/static/js/runtime-main.030d7401.js",
     "runtime-main.js.map": "/Timco/static/js/runtime-main.030d7401.js.map",
-    "static/js/2.fb11a635.chunk.js": "/Timco/static/js/2.fb11a635.chunk.js",
-    "static/js/2.fb11a635.chunk.js.map": "/Timco/static/js/2.fb11a635.chunk.js.map",
+    "static/js/2.c4c3b098.chunk.js": "/Timco/static/js/2.c4c3b098.chunk.js",
+    "static/js/2.c4c3b098.chunk.js.map": "/Timco/static/js/2.c4c3b098.chunk.js.map",
     "index.html": "/Timco/index.html",
-    "static/css/main.33071467.chunk.css.map": "/Timco/static/css/main.33071467.chunk.css.map",
-    "static/js/2.fb11a635.chunk.js.LICENSE.txt": "/Timco/static/js/2.fb11a635.chunk.js.LICENSE.txt",
-    "static/media/habilidades.079e96e9.csv": "/Timco/static/media/habilidades.079e96e9.csv"
+    "static/css/main.df46e50c.chunk.css.map": "/Timco/static/css/main.df46e50c.chunk.css.map",
+    "static/js/2.c4c3b098.chunk.js.LICENSE.txt": "/Timco/static/js/2.c4c3b098.chunk.js.LICENSE.txt",
+    "static/media/habilidades.f4f3dd79.csv": "/Timco/static/media/habilidades.f4f3dd79.csv",
+    "static/media/user.048c801a.png": "/Timco/static/media/user.048c801a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.030d7401.js",
-    "static/js/2.fb11a635.chunk.js",
-    "static/css/main.33071467.chunk.css",
-    "static/js/main.313711c9.chunk.js"
+    "static/js/2.c4c3b098.chunk.js",
+    "static/css/main.df46e50c.chunk.css",
+    "static/js/main.ba05a4de.chunk.js"
   ]
 }
